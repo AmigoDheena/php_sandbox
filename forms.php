@@ -54,6 +54,7 @@
     <h1 style="text-align: center;">Form</h1>
     <?php
     $name_error = $email_error = $url_error = $comment_error = $gender_error = '';
+    $name = $email = $url = $comment = $gender = '';
         if (isset($_POST['submit'])) {
             $name = $_POST['name'];
             $email = $_POST['email'];
@@ -100,13 +101,13 @@
         }
     ?>
     <form action="<?php $_SERVER['PHP_SELF'];?>" method="POST">
-        Name: <input type="text" name="name"> <span> <?php echo $name_error; ?> </span> <br>
-        Email: <input type="text" name="email"> <span> <?php echo $email_error; ?> </span> <br>
-        Website: <input type="text" name="url"> <span> <?php echo $url_error; ?> </span> <br>
-        Comment: <textarea name="comment" cols="30" rows="10"></textarea> <span> <?php echo $comment_error; ?> </span> <br>
+        Name: <input type="text" name="name" value="<?php echo $name; ?>"> <span> <?php echo $name_error; ?> </span> <br>
+        Email: <input type="text" name="email" value="<?php echo $email; ?>"> <span> <?php echo $email_error; ?> </span> <br>
+        Website: <input type="text" name="url" value="<?php echo $url; ?>"> <span> <?php echo $url_error; ?> </span> <br>
+        Comment: <textarea name="comment" cols="30" rows="10"><?php echo $comment; ?></textarea> <span> <?php echo $comment_error; ?> </span> <br>
         Gender: 
-        Male:<input type="radio" name="gender" value="male">
-        Female: <input type="radio" name="gender" value="female"> <br> <span> <?php echo $gender_error; ?> </span> <br>
+        Male:<input type="radio" name="gender"<?php if (isset($gender) && $gender == 'male') { echo "checked"; } ?> value="male">
+        Female: <input type="radio" name="gender" <?php if(isset($gender) && $gender == 'female'){ echo "ehecked"; } ?> value="female"> <br> <span> <?php echo $gender_error; ?> </span> <br>
          <input type="submit" name="submit" value="Submit">
     </form>
     
