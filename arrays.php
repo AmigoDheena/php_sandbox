@@ -85,3 +85,18 @@ foreach ($movies as $moviename => $info) {
     echo "<div><h3>$moviename</h3><img src='assets/img/$info[image]'><h4>$info[year]</h4></div>";
 }
 echo "</div>";
+
+//---------------------------------------------------------------------------------------
+
+$docs = ".";
+$pfiles = scandir($docs);
+$pfiles = array_diff($pfiles,array('..','.','.git','.gitattributes','README.md','assets'));
+$pfiles = array_values($pfiles);
+pre_r($pfiles);
+echo "<table style='width:10%''><tr><th>S.no</th><th>File Name</th></tr>";
+for ($i=0; $i<count($pfiles) ; $i++) { 
+    echo "<tr><td>$i</td><td>$pfiles[$i]</td></tr>";
+}
+echo "</table>";
+
+//---------------------------------------------------------------------------------------
