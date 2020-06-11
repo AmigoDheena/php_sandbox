@@ -1,0 +1,18 @@
+/* Movie */
+.flex-container {
+display: flex;
+justify-content: center;
+}
+
+.flex-container > div {
+margin: 10px;
+text-align: center;
+font-size: 30px;
+}
+
+.flex-container div {
+font-family: -webkit-pictograph;
+color: black;
+font-size: 20px;
+}
+/* Movie */
