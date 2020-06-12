@@ -140,8 +140,8 @@
                     ."</td><td>".$row['username']
                     ."</td><td>".$row['email']
                     ."</td><td>".$row['reg_date']
-                    ."</td><td><a href='sql.php?edit=$row[id]' class='btn'>Edit </a>"
-                    ."</td><td><a href='sql.php?delete=$row[id]' class='btn'>Delete</a>";
+                    ."</td><td><a href='crud.php?edit=$row[id]' class='btn'>Edit </a>"
+                    ."</td><td><a href='crud.php?delete=$row[id]' class='btn'>Delete</a>";
                 }
             }
         ?>
