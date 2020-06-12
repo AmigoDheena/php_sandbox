@@ -59,18 +59,27 @@ echo "</table>";
 // 3. Multidimensional arrays
 $dir = "assets/img";
 $files = scandir($dir);
-print_r($files);
-
 function pre_r($x){
     echo "<pre>";
     print_r($x);
     echo "</pre>";
 }
 pre_r($files);
+// $files_simplified = array_values(array_diff(scandir($dir),array('.','..')));
+// pre_r($files_simplified);
+
+function beautify_scandir($data){
+    return array_values(array_diff(scandir($data),array('.','..')));
+}
+
+$files = beautify_scandir($dir);
+pre_r($files);
+
+/*pre_r($files);
 $files = array_diff($files,array('..','.')); // removed '..','.'
 pre_r($files);
 $files = array_values($files); //reset counting
-pre_r($files);
+pre_r($files);*/
 
 $movies = [];
 for ($i=0; $i<count($files) ; $i++) { 
