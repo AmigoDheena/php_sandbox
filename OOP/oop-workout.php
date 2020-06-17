@@ -2,6 +2,7 @@
 class Person{
 
     const CHAR_NAME = "Spider Man";
+    public static $power = "Web";
     
     public $firstname;
     public $lastname;
@@ -25,6 +26,7 @@ echo $parker->gender . "<br>";
 class Employee extends Person{
 
     const COMPANY_NAME = 'Marvel';
+    public static $SuitColor = "Red & Blue"; 
 
     /**
      * Title of job
@@ -32,11 +34,17 @@ class Employee extends Person{
      */
     private $jobTitle;
 
+    private static function SuitColor(){
+        return self::$SuitColor;
+    }
+
     public function __construct($jobTitle,$firstname,$lastname,$gender = 'Male')
     {
         $this->jobTitle = $jobTitle;
+        echo self::SuitColor() . "<br>";
+        echo self:: $power . "<br>";
         echo self::COMPANY_NAME ."<br>";
-        echo parent::CHAR_NAME ."<br>";
+        echo parent::CHAR_NAME ."<br>"; //Get parrent const
         parent::__construct($firstname,$lastname,$gender);
     }
 
@@ -61,7 +69,8 @@ class Employee extends Person{
     }
 
 }
-
+echo Employee::$SuitColor . "<br>"; //we can call static variable without initiating an object
+// echo Employee::SuitColor() . "<br>"; // only works for Public method
 $peter = new Employee('PHP Developer','Peter','Parker');
 $peter->jobTitle = "Tester"; //Without __set method we can't change the Private property value
 echo $peter->empdetail();
