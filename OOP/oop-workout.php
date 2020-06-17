@@ -1,5 +1,7 @@
 <?php
 class Person{
+
+    const CHAR_NAME = "Spider Man";
     
     public $firstname;
     public $lastname;
@@ -22,6 +24,8 @@ echo $parker->gender . "<br>";
 
 class Employee extends Person{
 
+    const COMPANY_NAME = 'Marvel';
+
     /**
      * Title of job
      * @var string jobTitle
@@ -31,6 +35,8 @@ class Employee extends Person{
     public function __construct($jobTitle,$firstname,$lastname,$gender = 'Male')
     {
         $this->jobTitle = $jobTitle;
+        echo self::COMPANY_NAME ."<br>";
+        echo parent::CHAR_NAME ."<br>";
         parent::__construct($firstname,$lastname,$gender);
     }
 
@@ -60,4 +66,5 @@ $peter = new Employee('PHP Developer','Peter','Parker');
 $peter->jobTitle = "Tester"; //Without __set method we can't change the Private property value
 echo $peter->empdetail();
 // echo $peter->getjobTitle();
-echo $peter->jobTitle;
+echo $peter->jobTitle."<br>";;
+echo $peter::CHAR_NAME;
