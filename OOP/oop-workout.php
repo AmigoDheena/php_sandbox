@@ -22,13 +22,24 @@ echo $parker->gender . "<br>";
 
 class Employee extends Person{
 
-    public $jobTitle;
+    private $jobTitle;
 
     public function __construct($jobTitle,$firstname,$lastname,$gender = 'Male')
     {
         $this->jobTitle = $jobTitle;
         parent::__construct($firstname,$lastname,$gender);
     }
+
+    public function __set($name,$value) //Comment and check
+    {
+        $this->$name = $value;
+    }
+
+    public function getjobTitle()
+    {
+        return $this->jobTitle;
+    }
+
     public function empdetail(){
         return $this->firstname ." " .$this->lastname . " is a " . $this->jobTitle ." and good " . $this->gender . " employee";
     }
@@ -36,4 +47,6 @@ class Employee extends Person{
 }
 
 $peter = new Employee('PHP Developer','Peter','Parker');
+$peter->jobTitle = "Tester"; //Without __set method we can't change the Private property value
 echo $peter->empdetail();
+echo $peter->getjobTitle();
