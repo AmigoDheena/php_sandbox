@@ -1,6 +1,6 @@
 <?php
-    include 'class/calc.class.php';
-    include 'includes/calc.inc.php';
+    declare(strict_types = 1);
+    include 'includes/class-autoload.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
     <title>Calculator</title>
 </head>
 <body>
-    <form action="class/calc.class.php" method="POST">
+    <form action="includes/calc.inc.php" method="POST">
         <input type="number" name="num1">        
         <input type="number" name="num2">
         <select name="oper">
