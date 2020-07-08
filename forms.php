@@ -72,14 +72,14 @@
             }else{
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     $email_error = "Invalid email format";
-                 }
+                }
             }
             if (empty($url)) {
                 $url_error = "Please Enter your URL!";
             }else{
                 if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$url)) {
                     $url_error = "Invalid URL";
-                 }
+                }
             }
             if (empty($comment)) {
                 $comment_error = "Please Enter your Comment!";
@@ -109,7 +109,7 @@
         Gender:
         Male:<input type="radio" name="gender"<?php if (isset($gender) && $gender == 'male') { echo "checked"; } ?> value="male">
         Female: <input type="radio" name="gender" <?php if(isset($gender) && $gender == 'female'){ echo "ehecked"; } ?> value="female"> <br> <span> <?php echo $gender_error; ?> </span> <br>
-         <input type="submit" name="submit" value="Submit">
+        <input type="submit" name="submit" value="Submit">
     </form>
 
 </div>
