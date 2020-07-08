@@ -15,9 +15,9 @@ if ($x == 10) {
 
 // IF ELSE
 if ($x === 20 ) {
-    echo '$x is: ' . $x . "<br>"; //$x is not 10
+    echo '$x is: ' . $x . "<br>"; 
 }else{
-    echo '$x is not: ' . $x . "<br>";
+    echo '$x is not: ' . $x . "<br>"; //$x is not 10
 }
 
 // IF ELSEIF ELSE
