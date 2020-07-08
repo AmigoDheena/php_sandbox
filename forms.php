@@ -63,7 +63,7 @@
             if (isset($_POST['gender'])) {
                 $gender = $_POST['gender'];
             }
-            
+
             if (empty($name)) {
                 $name_error = "Please Enter your Name!";
             }
@@ -71,14 +71,14 @@
                 $email_error = "Please Enter your Email!";
             }else{
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    $email_error = "Invalid email format"; 
+                    $email_error = "Invalid email format";
                  }
             }
             if (empty($url)) {
                 $url_error = "Please Enter your URL!";
             }else{
                 if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$url)) {
-                    $url_error = "Invalid URL"; 
+                    $url_error = "Invalid URL";
                  }
             }
             if (empty($comment)) {
@@ -89,28 +89,29 @@
             }
             if (empty($name_error or $email_error or $url_error or $comment_error or $gender_error)) {
                 echo "<table>";
-                echo "<tr><td>Name</td><td>".$name."</td></tr>";  
-                echo "<tr><td>Email</td><td>".$email."</td></tr>";  
-                echo "<tr><td>URL</td><td>".$url."</td></tr>";  
+                echo "<tr><td>Name</td><td>".$name."</td></tr>";
+                echo "<tr><td>Email</td><td>".$email."</td></tr>";
+                echo "<tr><td>URL</td><td>".$url."</td></tr>";
                 echo "<tr><td>Comment</td><td>".$comment."</td></tr>";
                 if (isset($_POST['gender'])) {
-                    echo "<tr><td>Gender</td><td>".$gender."</td></tr>";  
+                    echo "<tr><td>Gender</td><td>".$gender."</td></tr>";
                 }
                 echo "</table><br><br>";
             }
         }
     ?>
-    <form action="<?php $_SERVER['PHP_SELF'];?>" method="POST">
+    <form  method="POST">
+      <input type="hidden" name="hidden_type" value="Y">
         Name: <input type="text" name="name" value="<?php echo $name; ?>"> <span> <?php echo $name_error; ?> </span> <br>
         Email: <input type="text" name="email" value="<?php echo $email; ?>"> <span> <?php echo $email_error; ?> </span> <br>
         Website: <input type="text" name="url" value="<?php echo $url; ?>"> <span> <?php echo $url_error; ?> </span> <br>
         Comment: <textarea name="comment" cols="30" rows="10"><?php echo $comment; ?></textarea> <span> <?php echo $comment_error; ?> </span> <br>
-        Gender: 
+        Gender:
         Male:<input type="radio" name="gender"<?php if (isset($gender) && $gender == 'male') { echo "checked"; } ?> value="male">
         Female: <input type="radio" name="gender" <?php if(isset($gender) && $gender == 'female'){ echo "ehecked"; } ?> value="female"> <br> <span> <?php echo $gender_error; ?> </span> <br>
          <input type="submit" name="submit" value="Submit">
     </form>
-    
-</div> 
+
+</div>
 </body>
 </html>
